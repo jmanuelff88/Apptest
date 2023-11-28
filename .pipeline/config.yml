@@ -28,7 +28,7 @@ stages:
     cfAppName: "Apptest"
     cfCredentialsId: "deploy-to-cf"
     deployType: "standard"
-    tmsUpload: false
+    tmsUpload: true #Estaba en False fue el segundo cambio para que se cargara para el tms
 steps:
   artifactPrepareVersion:
     versioningType: "cloud_noTag"
@@ -37,5 +37,5 @@ steps:
   cloudFoundryDeploy:
     mtaDeployParameters: "-f --version-rule ALL"
   tmsUpload:
-    nodeName: "qa"
-    credentialsId: "tms-sk"
+    nodeName: "QAS" #Estaba qa pero lo cambiamos por nuestro nombre
+    credentialsId: "tms-sk" #El nombre de las credenciales la puedes elegir pero debe de ser el mismo nombre que eliges para el CICD en el apartado de credenciales
